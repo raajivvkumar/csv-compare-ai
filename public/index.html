@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>CSV Compare AI</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <div class="app">
+      <!-- Header -->
+
+      <header>
+        <div class="logo">CSV Compare AI</div>
+
+        <div class="version">Version 1.0</div>
+      </header>
+
+      <!-- Main -->
+
+      <main>
+        <!-- Left Panel -->
+
+        <section class="panel upload-panel">
+          <h2>
+            Upload Files
+            <span id="fileCounter">(0)</span>
+          </h2>
+
+          <div id="dropZone" class="drop-zone">Drop CSV Files Here</div>
+          <input type="file" id="fileInput" accept=".csv" multiple hidden />
+          <div id="fileList" class="file-list">No files uploaded</div>
+          <div id="uploadStats" class="upload-stats">Total Size : 0 KB</div>
+        </section>
+
+        <!-- Right Panel -->
+
+        <section class="panel settings-panel">
+          <h2>Comparison Settings</h2>
+
+          <label> Key Column </label>
+
+          <select id="keyColumn">
+            <option>Record ID</option>
+          </select>
+
+          <h3>Compare Fields</h3>
+
+          <div class="fields">
+            <label><input type="checkbox" checked /> Amount</label>
+
+            <label><input type="checkbox" checked /> Payment Count</label>
+
+            <label><input type="checkbox" /> Date</label>
+
+            <label><input type="checkbox" /> Fundraiser</label>
+          </div>
+          <section class="compare-options">
+            <h2>Comparison Settings</h2>
+
+            <div class="setting-group">
+              <label for="keyColumnSelect"> Key Column </label>
+
+              <select id="keyColumnSelect">
+                <option value="">Select Key Column</option>
+              </select>
+            </div>
+
+            <div class="setting-group">
+              <label> Compare Columns </label>
+
+              <div id="compareFields"></div>
+            </div>
+          </section>
+
+          <button id="compareBtn">Compare Files</button>
+        </section>
+      </main>
+
+      <!-- Results -->
+
+      <section id="results" class="results">
+        <h2>Results</h2>
+
+        <div class="cards">
+          <div class="card">
+            <h3>Matched</h3>
+
+            <p>0</p>
+          </div>
+
+          <div class="card">
+            <h3>Mismatch</h3>
+
+            <p>0</p>
+          </div>
+
+          <div class="card">
+            <h3>Missing</h3>
+
+            <p>0</p>
+          </div>
+
+          <div class="card">
+            <h3>Duplicate</h3>
+
+            <p>0</p>
+          </div>
+        </div>
+      </section>
+      <section class="results-section">
+        <h2>Comparison Results</h2>
+
+        <table id="resultsTable">
+          <thead>
+            <tr>
+              <th>Record ID</th>
+
+              <th>Status</th>
+
+              <th>Details</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td colspan="3" class="empty-result">No comparison performed.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+
+    <script type="module" src="js/modules/app.js"></script>
+  </body>
+</html>
